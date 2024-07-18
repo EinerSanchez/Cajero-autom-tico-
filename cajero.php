@@ -68,20 +68,22 @@ if (verificarTarjeta($tipotarjeta, $numerotarjeta, $clave)) {
     echo "3. Salir\n";
     $opcion = readline("Ingrese una opción: ");
     //Al ingresar y realizar alguna accion en opciones siempre mostrara el saldo que queda en la cuenta
-    switch ($opcion) {
-      case 1:
+    match ($opcion) {
+      1 => {
         $monto = readline("Ingrese el monto a retirar: ");
         retirarDinero($tipotarjeta, $numerotarjeta, $monto);
-        break;
-      case 2:
+      },
+      2 => {
         $monto = readline("Ingrese el monto a depositar: ");
         depositarDinero($tipotarjeta, $numerotarjeta, $monto);
-        break;
-      case 3:
+      },
+      3 => {
         echo "Gracias por utilizar el cajero automático.\n";
-        exit;
-      default:
+        exit;//cerrar si ya termino todo 
+      },
+      default => {
         echo "Opción inválida. Por favor, inténtelo de nuevo.\n";
+      }
     }
   }
 }
